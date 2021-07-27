@@ -5,7 +5,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("procellis/messages")
 
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    print(msg.topic+" "+str(msg.payload.decode("utf-8")))
 
 username = input("What's your username? ")
 client = mqtt.Client(username)
